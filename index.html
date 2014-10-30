@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Development Processes (and Why You Need Them)</title>
+
+    <meta name="description" content="How to use task runners like Grunt and Gulp to automate boring, repetitive, and frustrating tasks.">
+    <meta name="author" content="Jason Lengstorf">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/theme/copter.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6102252/625342/css/fonts.css" />
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section data-markdown>
+            <script type="text/template">
+                # Development Processes
+                ## (And Why You Need Them)
+
+                <small>Presented by [Jason Lengstorf](http://lengstorf.com) of [Copter Labs](http://www.copterlabs.com)</small>
+
+                <small>Twitter: [@jlengstorf](https://twitter.com/jlengstorf) | Email: [jason@copterlabs.com](mailto:jason@copterlabs.com)
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                <!-- .slide: data-background="url(img/jason-lengstorf.jpg)" class="push-right" -->
+
+                ## A Little Background
+
+                * Founder of Copter Labs <!-- .element: class="fragment" -->
+                * Consultant for startups/agencies <!-- .element: class="fragment" -->
+                * Pixel pushing since 2003 <!-- .element: class="fragment" -->
+                * Author of 3 books on nerd shit <!-- .element: class="fragment" -->
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                # Let&rsquo;s Play a Game
+
+                Note: Imagine you&rsquo;re on a team that has taken on a 
+                    new client. Your team consists of a project manager, 
+                    a sales lead, a project coordinator, an artistic director,
+                    two designers, a development manager, a technical lead,
+                    and two developers. The client 
+                    has her own team, which consists of her assistant, the 
+                    advisor from the legal department, the branding guideline 
+                    enforcement team, the database gatekeeper, the in-house 
+                    developer, and a few other people who will pop in to touch 
+                    things as the project goes on. (I have been on this team.)
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                <!-- .slide: data-background="url(img/saw.jpg)" -->
+
+                # Let&rsquo;s Play a Game <!-- .element: style="color: white" -->
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## How We Plan Projects
+
+                ![Project Planning](/img/project-planning_planned.png)
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## What Actually Happens
+
+                ![Project Planning](/img/project-planning_actual.png)
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                # What Is a Process?
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                > Development processes are systems or tools that remove bottlenecks in projects and make repetitive tasks automatic.
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## What Constitutes a Process?
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                > Any task that will be repeated more than once should be treated as a process.
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Things That Should Be Processes
+
+                * The entire project workflow <!-- .element: class="fragment" -->
+                * Code generators or boilerplates <!-- .element: class="fragment" -->
+                * Code review <!-- .element: class="fragment" -->
+                * Repo management/branching <!-- .element: class="fragment" -->
+                * Design style guides/templates  <!-- .element: class="fragment" -->
+                * Responses to common questions <!-- .element: class="fragment" -->
+                * Internal communication <!-- .element: class="fragment" -->
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                # Why We Need Processes
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Processes Save Time
+
+                > Solving problems that were already solved during a previous project is a huge waste of time and resources.
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Processes Create Clarity
+
+                > A process eliminates questions of responsibility and project ownership.
+
+                Note: A process creates lists of responsibilities. Did you do all the stuff on your list? If not, this is still your responsibility and you need to finish it up.
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## ...Which Helps Avoid Conflicts
+
+                ![prank](img/office-tension.gif)
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## ...Which Helps Avoid Conflicts
+
+                <br>
+
+                > Creating processes removes the necessity  
+                > (and stress) of making someone manually police day-to-day operations.
+
+                <br><br><br>
+
+                Note: Even if it&rsquo;s their job, no one wants to be the bad guy, and you certainly don&rsquo;t want to create a situation where there is a person whose job is to be the bad guy when you could have a process that takes that need away.
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Processes Remove Bottlenecks
+
+                > If only one person in your organization knows how to solve your problem, you&rsquo;re focusing on the wrong problem.
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                # The Best Processes Are Automatic
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ### Let a Task Runner Handle Development Gruntwork
+
+                ![Grunt](img/grunt.png)
+
+                Note: Using a task runner like Grunt or Gulp creates consistency, completeness, and 
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ### Use Generators or Boilerplates to Start New Projects
+
+                ![Yeoman](img/yeoman.png)
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ### Use Macros to Automate Common Responses
+
+                ![Zendesk Macros](img/zendesk.png)
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                # Make Common Processes Less Painful
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Don&rsquo;t Write the Same Code Twice
+
+                * If your company works on one product, make reusable components into libraries or utility classes that can be shared.
+                * If your company works on client projects or multiple products without a shared codebase, keep reusable components available in a way that makes sense for your team.
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Create Reusable Messages
+
+                ![TextExpander Snippets](img/textexpander.png)
+            </script>
+        </section>
+
+<!--
+
+ * Ideal Spots for Processes
+ * How to Create a Process
+    * Identify Similarities Between Projects
+
+-->
+
+        <section data-markdown>
+            <script type="text/template">
+                # Creating a Process
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Identify Similarities in Projects
+
+                * Have we built something like this before?
+                * Can we reuse components from other projects?
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Write Down Every Step as a Task
+
+                Note: Keep in mind that this isn&rsquo;t being done with the intention of turning the office into a police state. The goal is to remove ambiguity from expectations and to give everyone on the team all the tools and direction they need to do a good job.
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ### (Don&rsquo;t Make Tasks Too General)
+
+                <br>
+                **TODO:** Build website
+
+                Note: If the task is too broad, there is a LOT of room for interpretation.
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Lay Out Specific Expectations
+
+                ![Todo list](img/todo-list.png)
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                > Every step left open to interpretation is a potential point of failure.
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Keep It Reasonable
+
+                > In order to succeed, the process needs to be simpler to follow than the old approach.
+
+                Note: If the process is too complicated or overbearing, no one will follow it. The goal is to make everyone&rsquo;s lives easier, not to slap them with tons of extra hours spent reporting or poring over tiny details.
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Put the Process Up for Review
+
+                Note: This shouldn&rsquo;t be a top-down effort; managers don&rsquo;t necessarily know all the details that go into a development project, and developers won&rsquo;t know exactly how the design is handled &mdash; each team needs to help formulate their own process.
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Treat It Like the Word of God
+
+                Note: By this, I don&rsquo;t mean, "Ignore it entirely, then apologize once a week." It needs to be followed by everyone — especially the people who created it — at all times.
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Make Adjustments as Needed
+
+                Note: The company will evolve, the tools will change, and you&rsquo;ll have ideas to improve the process. 
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## ...But Don&rsquo;t Overtweak It
+
+                Note: If the process changes too often, it&rsquo;s no better than not having a process at all. The goal is to create consistency and clear expectations, so if there&rsquo;s no consistency in the process, it isn&rsquo;t helping things.
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                # How to Ensure that Processes Are Followed
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Use a Tool Everyone &ldquo;Gets&rdquo;
+
+                ![Trello](img/trello.png)
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Follow the Process Yourself
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Make It Painful Not to Follow
+
+                Note: Do it over, reject the pull request, etc.
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Ask Why It Wasn&rsquo;t Followed
+
+                Note: There may be a valid reason, but usually it&rsquo;s "I forgot" or "Processes are stupid" — neither is a valid excuse.
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                # Processes Can:
+
+                * Help control chaos <!-- .element: class="fragment" -->
+                * Remove bottlenecks <!-- .element: class="fragment" -->
+                * Clarify expectations <!-- .element: class="fragment" -->
+                * Automate common tasks <!-- .element: class="fragment" -->
+                * Simplify development <!-- .element: class="fragment" -->
+                * Save everyone time <!-- .element: class="fragment" -->
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                # Questions?
+
+                Note: Don&rsquo;t stick on this slide. Go to the next one.
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                # Development Processes
+                ## (And Why You Need Them)
+
+                <small>Presented by [Jason Lengstorf](http://lengstorf.com) of [Copter Labs](http://www.copterlabs.com)</small>
+
+                <small>Twitter: [@jlengstorf](https://twitter.com/jlengstorf) | Email: [jason@copterlabs.com](mailto:jason@copterlabs.com)
+            </script>
+        </section>
+
+    </div>
+
+</div>
+
+<div class="hashtag">
+    <p>
+        Tweet: 
+        <a href="https://twitter.com/intent/tweet?text=I%27m+at+%22Development+Processes+(and+Why+You+Need+One)%22+by+%40jlengstorf&amp;hashtags=UDE2014&amp;related=jlengstorf,copterlabs" target="_blank">@jlengstorf #UDE2014</a>
+    </p>
+</div>
+
+<footer>
+    <ul class="inline">
+        <li>&ldquo;Development Processes&rdquo; by <a href="http://lengstorf.com">Jason Lengstorf</a></li>
+        <li><a href="https://twitter.com/jlengstorf">@jlengstorf</a></li>
+        <li><a href="https://facebook.com/jasonlengstorf">facebook.com/jasonlengstorf</a></li>
+        <li><a href="http://github.com/jlengstorf/development-processes-slides">View this on GitHub</a></li>
+    </ul>
+</footer>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'fade',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+    });
+
+</script>
+
+</body>
+</html>
