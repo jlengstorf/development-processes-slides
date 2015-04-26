@@ -15,7 +15,7 @@ $mainFont: 'Mercury Text G2 A', 'Mercury Text G2 B', 'Mercury Text G2', Georgia,
 $mainColor: #403f3d;
 $headingFont: 'Knockout 67 A', 'Knockout 67 B', 'Knockout-HTF67-FullBantamwt', impact, sans-serif;;
 $headingColor: #1a1918;
-$headingLetterSpacing: .02em;
+$headingLetterSpacing: .01em;
 $headingTextShadow: none;
 $heading1TextShadow: none;
 $backgroundColor: #fffdfa;
@@ -61,16 +61,28 @@ $selectionBackgroundColor: $linkColor;
         background-repeat: no-repeat;
 
         &.push-right {
-            padding-left: 40%;
+            padding-left: 42%;
+            text-align: left;
 
             h2 {
                 text-align: left;
             }
         }
 
+        &.light-text {
+            &,h1,h2 {
+                color: $backgroundColor;
+                text-shadow: 2px 2px 0px $mainColor;
+            }
+        }
+
         blockquote {
             box-shadow: none;
             color: lighten($mainColor, 15%);
+        }
+
+        .bigger {
+            font-size: 1.75em;
         }
     }
 
@@ -179,7 +191,8 @@ section .left,section .right {
 footer {
     display: none;
     position: absolute;
-    bottom: 10px;
+    background: transparentize($backgroundColor, .25);
+    bottom: 0;
     width: 100%;
     z-index: 1000;
 
@@ -189,6 +202,7 @@ footer {
 
     ul.inline {
         width: 100%;
+        margin: 10px 0;
         padding: 0;
         text-align: center;
         box-sizing: border-box;
@@ -199,6 +213,7 @@ footer {
             font-family: $mainFont;
             font-size: 17px;
             color: #666461;
+            text-shadow: 1px 1px 1px $backgroundColor;
 
             a {
                 color: inherit;
