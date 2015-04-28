@@ -225,6 +225,10 @@ footer {
                     vertical-align: -5%;
                 }
 
+                &[href*="lengstorf.com"]:before {
+                    content: '\F0ac';
+                }
+
                 &[href*="twitter.com"]:before {
                     content: '\F099';
                 }

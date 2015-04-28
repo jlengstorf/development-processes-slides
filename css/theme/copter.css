@@ -278,6 +278,8 @@ footer {
           margin-right: 4px;
           font-family: 'FontAwesome';
           vertical-align: -5%; }
+        footer ul.inline li a[href*="lengstorf.com"]:before {
+          content: '\F0ac'; }
         footer ul.inline li a[href*="twitter.com"]:before {
           content: '\F099'; }
         footer ul.inline li a[href*="facebook.com"]:before {

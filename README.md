@@ -2,7 +2,7 @@
 
 The slide deck for the "Hyper-Optimized Workflow with Grunt, LESS, Autoprefixer, Uncss, and More" by [Jason Lengstorf](http://lengstorf.com).
 
-[View the slides online.](http://jlengstorf.github.io/hyper-optimized-workflow/)
+[View the slides online.](http://jlengstorf.github.io/development-processes-slides/)
 
 **NOTE:** The slides are only tested in Chrome. Sorry if they break in your browser.
 
